@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style href="estilos.css"></style>
-    <script src="gerarTabuleiro.js"></script>
+    <title>Jogo da cobrinha</title>
 </head>
 <body>
-    
+ 
+    <canvas id="stage" width="600" height="600"></canvas>
+    <script src="game.js"></script>
 </body>
 </html>
