@@ -1,4 +1,5 @@
 var pontos = 0
+var pontuacaoMaxima = 0
         
         window.onload = function(){
             
@@ -31,6 +32,10 @@ var pontos = 0
             var movimento=false
  
             function game(){
+
+                document.getElementById("pontuacao").innerHTML='Pontos: '+pontos
+                document.getElementById("pontuacaoMaxima").innerHTML='Pontuação Máxima: '+pontuacaoMaxima
+
                 
                 px += vx;
                 py += vy;
@@ -134,6 +139,10 @@ var pontos = 0
                     console.log('morreu')
                     }
                     movimento=false
+                    if(pontos>pontuacaoMaxima){
+                        pontuacaoMaxima=pontos
+                    }
+                    pontos=0
                     
             }
 
