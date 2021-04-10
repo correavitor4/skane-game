@@ -27,7 +27,7 @@ class Conexao{
 
         try{
             $cmd->execute();
-            return 'executado';
+            return 'cadastrado';
             
         }
         catch(Exception $e){
