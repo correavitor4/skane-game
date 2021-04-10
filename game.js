@@ -5,7 +5,7 @@ var pontuacaoMaxima = 0
             
 
             
-            
+           
  
             var stage = document.getElementById('stage');
             var ctx = stage.getContext("2d");
