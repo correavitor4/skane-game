@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+    require_once('conexao.php');
+    $usuario = new Conexao();
+?>
+
 <html>
 <head>
     <title>Jogo da cobrinha</title>
