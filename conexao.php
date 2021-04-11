@@ -16,6 +16,21 @@ class Conexao{
         }
     }
 
+
+
+    private function verificaUsuario($usuario){
+        $cmd=$this->conn->prepare('SELECT nome_usuario FROM usuarios Where nome_usuario=:usuario');
+        $cmd->bindParam(":usuario",$usuario);
+
+        $cmd->execute();
+        $resultado=$cmd->fetch();
+        
+       
+
+        return $resultado;
+
+    }
+
     public function cadastrarUsuario($usuario,$senha){
         
         $senhaSegura = password_hash($senha, PASSWORD_DEFAULT);
@@ -25,13 +40,20 @@ class Conexao{
         $cmd->bindParam(":senha",$senhaSegura);
         
 
-        try{
-            $cmd->execute();
-            return 'cadastrado';
-            
+        if($this->verificaUsuario($usuario)==''){
+            try{
+                $cmd->execute();
+                return 'cadastrado';
+                
+            }
+            catch(Exception $e){
+                return 'Erro: '.$e;
+            }
         }
-        catch(Exception $e){
-            return 'Erro: '.$e;
+
+        else{
+            
+            return 'Usuario já cadastrado. Tente fazer o Login';
         }
 
         
