@@ -31,6 +31,9 @@ class Conexao{
 
     }
 
+
+    
+
     public function cadastrarUsuario($usuario,$senha){
         
         $senhaSegura = password_hash($senha, PASSWORD_DEFAULT);
@@ -60,6 +63,40 @@ class Conexao{
 
 
     }
+
+
+    public function loginUsuario($usuario,$senha){
+        if($this->verificaUsuario($usuario)==''){
+            return 'Esse usuário não existe no banco de dados';
+        }
+        else{
+            $dadosUsuario = $this->buscaDadosUsuario($usuario);
+
+            $senhaBancoDeDados = $dadosUsuario['senha'];
+            
+            if(password_verify($senha,$senhaBancoDeDados)){
+                unset($dadosUsuario['senha']);
+                return $dadosUsuario;
+            }
+            else{
+                return 'A senha está incorreta';
+            }
+        }
+    }
+
+
+    private function buscaDadosUsuario($usuario){
+        $cmd=$this->conn->prepare('SELECT * FROM usuarios WHERE nome_usuario=:usuario');
+        $cmd->bindParam(":usuario",$usuario);
+        $cmd->execute();
+
+        $resultado = $cmd->fetch(PDO::FETCH_ASSOC);
+
+        return $resultado;
+
+    }
+
+
 }
 
 ?>
