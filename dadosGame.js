@@ -1,4 +1,7 @@
 $('document').ready(function(){
+
+    var dadosUsuario 
+
     $('#cadastroDiv #enviarCadastro').click(function(event) {
         event.preventDefault()
 
@@ -23,6 +26,22 @@ $('document').ready(function(){
                 $('label').text(resposta)
                 console.log(resposta)
                 
+
+                $.post('processamentoAjax.php',{
+                    usuario: usuario,
+                    senha: senha,
+                    operacao: 'login'
+                },
+                function(resposta){
+                    
+                    console.log(resposta);
+                    resposta = JSON.parse(resposta)
+                    $('#labelLogin').text('login realizado com sucesso')
+                    pontuacaoMaxima = resposta['pontuacao_maxima']
+                        
+                    dadosUsuario = resposta
+                    
+                })
             }
             
         })
@@ -64,6 +83,7 @@ $('document').ready(function(){
                     resposta = JSON.parse(resposta)
                     $('#labelLogin').text('login realizado com sucesso')
                     pontuacaoMaxima = resposta['pontuacao_maxima']
+                    dadosUsuario=resposta
                 
             }
             
@@ -72,5 +92,12 @@ $('document').ready(function(){
 
     })
 
+    
+
     carregarjQuery()
 })
+
+
+function atualizaPontuacao(pontos){
+    
+}

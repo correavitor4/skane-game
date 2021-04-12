@@ -141,6 +141,7 @@ var pontuacaoMaxima = 0
                     movimento=false
                     if(pontos>pontuacaoMaxima){
                         pontuacaoMaxima=pontos
+                        atualizaPontuacao(pontos)
                     }
                     pontos=0
                     

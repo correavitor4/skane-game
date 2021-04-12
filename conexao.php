@@ -101,6 +101,21 @@ class Conexao{
     }
 
 
+    
+    public function atualizaPontuacaoMaxima($usuario,$pontos){
+        $cmd=$this->conn->prepare('UPDATE usuarios SET pontuacao_maxima=:pontos WHERE nome_usuario=:usuario');
+        $cmd->bindParam(':pontos',$pontos);
+        $cmd->bindParam(':usuario',$usuario);
+
+        try{
+            $cmd->execute();
+            return $pontos;
+        }
+        catch(Exception $e){
+            return $e;
+        }
+    }
+
 }
 
 ?>
