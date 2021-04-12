@@ -7,7 +7,7 @@
         if($_POST['operacao']=='cadastro'){
             if(isset($_POST['usuario'])&&$_POST['usuario']!='' &&$_POST['senha']!=''){
 
-                echo $u->cadastrarUsuario($_POST['usuario'],$_POST['senha']);
+                echo $u->cadastrarUsuario($_POST['usuario'],$_POST['senha'],$_POST['pt']);
             }
             else if(isset($_POST['usuario'])){
                 if($_POST['usuario']=='' || $_POST['senha']==''){

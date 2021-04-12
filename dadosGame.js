@@ -6,11 +6,13 @@ $('document').ready(function(){
 
         var usuario = $('#usuarioCadastro').val()
         var senha = $('#senhaCadastro').val()
-
+        var pt = pontuacaoMaxima
+        var data = Date.now()
         $.post('processamentoAjax.php',{
             usuario: usuario,
             senha: senha,
-            operacao: 'cadastro'
+            operacao: 'cadastro',
+            pt:pt
         },
         function(resposta){
             console.log('post enviado')
@@ -20,6 +22,7 @@ $('document').ready(function(){
             else if(resposta=='cadastrado'){
                 $('label').text(resposta)
                 console.log(resposta)
+                
             }
             
         })
@@ -58,8 +61,9 @@ $('document').ready(function(){
             else{
 
                     console.log(resposta);
+                    resposta = JSON.parse(resposta)
                     $('#labelLogin').text('login realizado com sucesso')
-                
+                    pontuacaoMaxima = resposta['pontuacao_maxima']
                 
             }
             

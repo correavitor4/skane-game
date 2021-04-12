@@ -34,19 +34,23 @@ class Conexao{
 
     
 
-    public function cadastrarUsuario($usuario,$senha){
+    public function cadastrarUsuario($usuario,$senha,$pontos){
         
         $senhaSegura = password_hash($senha, PASSWORD_DEFAULT);
 
-        $cmd=$this->conn->prepare('INSERT INTO usuarios (nome_usuario,senha) VALUES (:usuario,:senha)');
+
+        $cmd=$this->conn->prepare('INSERT INTO usuarios (nome_usuario,senha,pontuacao_maxima) VALUES (:usuario,:senha,:pontos)');
         $cmd->bindParam(":usuario",$usuario);
         $cmd->bindParam(":senha",$senhaSegura);
+        $cmd->bindParam(':pontos',$pontos);
+
         
 
         if($this->verificaUsuario($usuario)==''){
             try{
                 $cmd->execute();
                 return 'cadastrado';
+                
                 
             }
             catch(Exception $e){
