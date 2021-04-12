@@ -46,9 +46,21 @@ $('document').ready(function(){
             if(resposta=='Preencha todos os campos'){
                 $('#labelLogin').text(resposta)
             }
-            else{
-                $('label').text('Login realizado com sucesso')
+
+            else if(resposta=='Usuário inexistente'){
                 console.log(resposta);
+                $('#labelLogin').text(resposta)
+            }
+            else if(resposta=='Senha inválida'){
+                console.log(resposta);
+                $('#labelLogin').text(resposta)
+            }
+            else{
+
+                    console.log(resposta);
+                    $('#labelLogin').text('login realizado com sucesso')
+                
+                
             }
             
         })

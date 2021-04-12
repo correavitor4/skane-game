@@ -18,17 +18,30 @@
 
         else if($_POST['operacao']=='login'){
             if(isset($_POST['usuario'])&&$_POST['usuario']!='' &&$_POST['senha']!=''){
-
-                echo json_encode($u->loginUsuario($_POST['usuario'],$_POST['senha']));
-                echo 'Campos Válidos';
+                if($u->loginUsuario($_POST['usuario'],$_POST['senha'])==''){
+                    echo 'Senha inválida';
+                }
+                else{
+                    if($u->loginUsuario($_POST['usuario'],$_POST['senha'])=='Esse usuário não existe no banco de dados'){
+                        echo 'Usuário inexistente';
+                    }
+                    else{
+                        echo json_encode($u->loginUsuario($_POST['usuario'],$_POST['senha']));
+                    }
+                    
+                }
             }
             else if(isset($_POST['usuario'])){
                 if($_POST['usuario']=='' || $_POST['senha']==''){
                     echo 'Preencha todos os campos';
                 }
             }
+                
+                
+            }
+            
         }
-    }
+    
 
     
 

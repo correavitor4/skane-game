@@ -79,7 +79,7 @@ class Conexao{
                 return $dadosUsuario;
             }
             else{
-                return 'A senha está incorreta';
+                return '';
             }
         }
     }
