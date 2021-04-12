@@ -40,11 +40,14 @@
                 
             }
             
+
+        else if($_POST['operacao']=='atualizaPontos'){
+            echo $u->atualizaPontuacaoMaxima($_POST['usuario'],$_POST['pontos']);
         }
+        
     
 
-    
-
+    }
    
     
 ?>

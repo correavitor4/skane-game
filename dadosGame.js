@@ -1,6 +1,8 @@
+var dadosUsuario
+
 $('document').ready(function(){
 
-    var dadosUsuario 
+    
 
     $('#cadastroDiv #enviarCadastro').click(function(event) {
         event.preventDefault()
@@ -99,5 +101,17 @@ $('document').ready(function(){
 
 
 function atualizaPontuacao(pontos){
+
+    if(dadosUsuario!=null){
+        $.post('processamentoAjax.php',{
+            usuario: dadosUsuario['nome_usuario'],
+            pontos:pontos,
+            operacao: 'atualizaPontos'
+        },
+        function(resposta){
+            console.log(resposta)
+            
+        })
+    }
     
 }
