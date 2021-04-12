@@ -1,4 +1,5 @@
 function carregarjQuery(){
+    console.log(Date.now())
     $('#cadastroDiv').hide()
     $('#loginDiv').hide()
 
