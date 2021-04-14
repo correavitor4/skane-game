@@ -12,4 +12,12 @@ function carregarjQuery(){
         $('#cadastroDiv').fadeIn()
         $('#divButtons').hide()
     })
+
+    $('#voltarCadastro').click(function(){
+        $('#loginDiv').hide()
+    })
+
+    $('#voltarLogin').click(function(){
+        $('#cadastroDiv').hide()
+    })
 }

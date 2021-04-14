@@ -13,6 +13,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="controlejQuery.js"></script>
 
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -42,23 +46,25 @@
 
         </div>
         
-        <div id="cadastroDiv">
+        <div id="cadastroDiv" >
             <form>
                 <label id="labelCadastro"></label>
                 <p>Usuário <input type="text" name="usuario" id="usuarioCadastro"></p>
-                <p>Senha <input type="text" name="senha" id="senhaCadastro"></p>
+                <p>Senha <input type="password" name="senha" id="senhaCadastro"></p>
                 <input type="submit" name="enviar" id="enviarCadastro">
+                <button id="voltarLogin">Voltar</button>
             </form>
         </div>
 
         <br><br>
 
-        <div id="loginDiv">
+        <div id="loginDiv" >
             <form>
                 <label id="labelLogin"></label>
                 <p>Usuário <input type="text" name="usuario" id="usuarioLogin"></p>
-                <p>Senha <input type="text" name="senha" id="senhaLogin"></p>
+                <p>Senha <input type="password" name="senha" id="senhaLogin"></p>
                 <input type="submit" name="enviar" id="enviarLogin">
+                <button id="voltarCadastro">Voltar</button>
             </form>
         </div>'
     </div>
