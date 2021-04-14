@@ -1,18 +1,49 @@
 .blocos{
     display: inline-block;
-    min-width: 600px;
-    min-height: 600px;
+
     margin-top: 100px;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
 }
 
 #divGame{
     margin-left: 8.5%;
+    
 }
 
+
+
 #direita{
-    transform: translateY(-460px);
+
     background-color: red;
     width: 50%;
     margin-right: 8.5%;
 
 }
+
+button{
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
+input[type="submit"]{
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+input[type="submit"]:hover{
+    background-color: white;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
