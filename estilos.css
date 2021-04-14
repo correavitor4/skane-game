@@ -1,0 +1,18 @@
+.blocos{
+    display: inline-block;
+    min-width: 600px;
+    min-height: 600px;
+    margin-top: 100px;
+}
+
+#divGame{
+    margin-left: 8.5%;
+}
+
+#direita{
+    transform: translateY(-460px);
+    background-color: red;
+    width: 50%;
+    margin-right: 8.5%;
+
+}
